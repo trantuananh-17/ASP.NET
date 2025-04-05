@@ -1,0 +1,84 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_View.cshtml";
+}
+
+<h1 style="text-align:center">Employee Information</h1>
+<form>
+    <table>
+        <tr>
+            <td>First Name</td>
+            <td>
+                <input type="text" name="firstname" />
+            </td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td>
+                <input type="text" name="lastname" />
+            </td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td>
+                <input type="radio" name="gender" value="Nam" />Nam
+                <input type="radio" name="gender" value="Nữ" />Nữ
+            </td>
+        </tr>
+        <tr>
+            <td>DOB:</td>
+            <td>
+                <select name="year">
+                    <option>2004</option>
+                    <option>2003</option>
+                    <option>2002</option>
+                    <option>2001</option>
+                </select>
+                <select name="month">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Hobies</td>
+            <td>
+                <input type="checkbox" name="hobie" value="music" />Music
+                <input type="checkbox" name="hobie" value="touris" />Touris
+                <input type="checkbox" name="hobie" value="sport" />Sport
+            </td>
+        </tr>
+        <tr>
+            <td>Lương</td>
+            <td>
+                <input type="text" name="luong" />
+            </td>
+        </tr>
+        <tr>
+            <td>Ngày làm việc:</td>
+            <td>
+                <input type="text" name="ngaylv" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="submit" />
+                <input type="reset" value="reset"/>
+            </td>
+        </tr>
+    </table>
+</form>
+<p>Ho ten: @ViewBag.firstname @ViewBag.lastname</p>
+<p>Gioi tinh: @ViewBag.gioitinh</p>
+<p>Ngya sinh: @ViewBag.month @ViewBag.year</p>
+<p>So thich: @ViewBag.hobie</p>
+<p>Luong: @ViewBag.luong</p>
+<p>Ngay lam viec: @ViewBag.ngaylv</p>
