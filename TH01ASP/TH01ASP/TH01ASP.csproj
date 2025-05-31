@@ -182,6 +182,8 @@
     <Content Include="Views\Shared\_View.cshtml" />
     <Content Include="Views\NhanVien\Index.cshtml" />
     <Content Include="Views\NhanVien\Nhap.cshtml" />
+    <Content Include="Views\NhanVien\Xuat.cshtml" />
+    <Content Include="Views\NhanVien\XuatList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

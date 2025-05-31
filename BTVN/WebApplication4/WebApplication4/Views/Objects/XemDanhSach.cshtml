@@ -1,0 +1,116 @@
+﻿@model IEnumerable<WebApplication4.Models.Product>
+
+@{
+    ViewBag.Title = "XemDanhSach";
+}
+
+<h2>Index</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Message"]
+    </div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+<p>
+    @Html.ActionLink("Thêm sản phẩm", "ThemDuLieu")
+</p>
+
+<div class="col-md-6">
+    @using (Html.BeginForm("XemDanhSach", "Objects", FormMethod.Get))
+    {
+        <div class="input-group mb-2">
+           @Html.TextBox("tim", Request["tim"], new {@class = "form-input", placeholder="Tìm theo giá"})
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">Tìm</button>
+            </div>
+        </div>
+    }
+
+</div>
+
+<div class="col-md-4 ">
+    <div class="btn-group">
+        @Html.ActionLink("Sắp xếp theo giá", "XemDanhSach", new {sx= ViewBag.sapxep, tim = Request["tim"] } , new { @class = "btn btn-secondary" })
+    </div>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Catalogy.CatalogyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PurchasePrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vintage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Region)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Catalogy.CatalogyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                <div class="d-inline-block text-truncate" style="max-width:300px">
+                    @Html.DisplayFor(modelItem => item.Description)
+                </div>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PurchasePrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vintage)
+            </td>
+            <td>
+                <img src="@Url.Content("~/Images/" + item.Image)" width="100" height="100" alt="Ảnh rượu" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Region)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProductID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProductID })
+            </td>
+        </tr>
+    }
+
+</table>

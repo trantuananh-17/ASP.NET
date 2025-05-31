@@ -1,0 +1,40 @@
+﻿@model Bai4.Models.ExamResult
+
+@{
+    ViewBag.Title = "Nhập Điểm Thi";
+}
+
+<h2>Nhập Điểm Thi</h2>
+
+@using (Html.BeginForm("Calculate", "ExamResult", FormMethod.Post))
+{
+    <label>Họ tên thí sinh:</label>
+    @Html.TextBoxFor(m => m.StudentName)
+    <br />
+
+    <label>Điểm Toán:</label>
+    @Html.TextBoxFor(m => m.MathScore)
+    <br />
+
+    <label>Điểm Lý:</label>
+    @Html.TextBoxFor(m => m.PhysicsScore)
+    <br />
+
+    <label>Điểm Hóa:</label>
+    @Html.TextBoxFor(m => m.ChemistryScore)
+    <br />
+
+    <label>Khu vực:</label>
+    <select name="Region">
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+    </select>
+    <br />
+
+    <label>Gia đình chính sách:</label>
+    @Html.CheckBoxFor(m => m.IsPolicyFamily)
+    <br />
+
+    <button type="submit">Tính</button>
+}

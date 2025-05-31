@@ -1,0 +1,67 @@
+﻿@model IEnumerable<TH01ASP.Models.NhanVien>
+@{
+    Layout = "~/Views/Shared/_View.cshtml";
+    List<TH01ASP.Models.NhanVien> li1 = ViewBag.li1;
+    List<TH01ASP.Models.NhanVien> li2 = ViewBag.li2;
+}
+
+<h2>XuatList</h2>
+
+<table>
+    <tr>
+        <td colspan="7">
+            Danh sach cac nhan vien nam
+        </td>
+    </tr>
+    <tr>
+        <td>Ho ten</td>
+        <td>Gioi tinh </td>
+        <td>So thich</td>
+        <td>Luong</td>
+        <td>Ngay lam viec</td>
+        <td>Luong thuc</td>
+        <td>Ngay nam sinh</td>
+    </tr>
+    @foreach (var item in li1)
+    {
+        <tr>
+            <td>@item.firstname @item.lastname</td>
+            <td>@item.gioitinh</td>
+            <td>@item.sothich</td>
+            <td>@item.luong</td>
+            <td>@item.ngaylv</td>
+            <td>@item.luongthuc</td>
+            <td>@item.thangsinh / @ViewBag.namsinh</td>
+        </tr>
+    }
+</table>
+
+
+<table>
+    <tr>
+        <td colspan="7">
+            Danh sach cac nhan vien luong > 300
+        </td>
+    </tr>
+    <tr>
+        <td>Ho ten</td>
+        <td>Gioi tinh </td>
+        <td>So thich</td>
+        <td>Luong</td>
+        <td>Ngay lam viec</td>
+        <td>Luong thuc</td>
+        <td>Ngay nam sinh</td>
+    </tr>
+    @foreach (var item in li2)
+    {
+        <tr>
+            <td>@item.firstname @item.lastname</td>
+            <td>@item.gioitinh</td>
+            <td>@item.sothich</td>
+            <td>@item.luong</td>
+            <td>@item.ngaylv</td>
+            <td>@item.luongthuc</td>
+            <td>@item.thangsinh / @ViewBag.namsinh</td>
+        </tr>
+    }
+</table>

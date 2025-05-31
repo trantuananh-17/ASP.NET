@@ -11,7 +11,7 @@ namespace TH01ASP.Models
         {
         }
 
-        public NhanVien(string firstname, string lastname, string gioitinh, string thangsinh, string namsinh, double sothich, double luong, double ngaylv)
+        public NhanVien(string firstname, string lastname, string gioitinh, string thangsinh, string namsinh, string sothich, double luong, double ngaylv)
         {
             this.firstname = firstname;
             this.lastname = lastname;
@@ -28,7 +28,7 @@ namespace TH01ASP.Models
         public string gioitinh { get; set; }
         public string thangsinh { get; set; }
         public string namsinh { get; set; }
-        public double sothich { get; set; }
+        public string sothich { get; set; }
         public double luong { get; set; }
         public double ngaylv { get; set; }
         public double luongthuc

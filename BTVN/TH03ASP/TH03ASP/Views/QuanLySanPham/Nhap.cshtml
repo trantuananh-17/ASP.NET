@@ -1,0 +1,105 @@
+﻿@model TH03ASP.Models.SanPham
+
+@{
+    ViewBag.Title = "Nhập Sản Phẩm";
+}
+
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #f0f2f5;
+        padding: 30px;
+    }
+
+    .form-wrapper {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        max-width: 500px;
+        margin: 0 auto;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+    .radio-group label {
+        display: inline-block;
+        margin-right: 20px;
+        font-weight: normal;
+    }
+
+    input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+</style>
+
+
+
+<div class="form-wrapper">
+    <h2>Nhập Sản Phẩm</h2>
+
+    @using (Html.BeginForm("Xuat", "QuanLySanPham", FormMethod.Post))
+    {
+        <div class="form-group">
+            <label>Mã sản phẩm:</label>
+            @Html.TextBoxFor(m => m.masp)
+        </div>
+
+        <div class="form-group">
+            <label>Tên sản phẩm:</label>
+            @Html.TextBoxFor(m => m.tensanpham)
+        </div>
+
+        <div class="form-group">
+            <label>Số lượng:</label>
+            @Html.TextBoxFor(m => m.soluong)
+        </div>
+
+        <div class="form-group">
+            <label>Giá tiền:</label>
+            @Html.TextBoxFor(m => m.giatien)
+        </div>
+
+        <div class="form-group">
+            <label>Giảm giá:</label>
+            <div class="radio-group">
+                <label>
+                    @Html.RadioButtonFor(m => m.giamgia, 1) Có
+                </label>
+                <label>
+                    @Html.RadioButtonFor(m => m.giamgia, 0) Không
+                </label>
+            </div>
+        </div>
+
+        <input type="submit" value="Xác nhận" />
+    }
+</div>

@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "Calculator";
+}
+
+<h2>Máy tính cơ bản</h2>
+
+<!-- Form nhập liệu và các phép toán -->
+<form method="post" action="@Url.Action("Calculator", "Calculator")">
+    <div>
+        <label for="number1">Nhập số thứ 1:</label>
+        <input type="number" id="number1" name="number1" required>
+    </div>
+    <div>
+        <label for="number2">Nhập số thứ 2:</label>
+        <input type="number" id="number2" name="number2" required>
+    </div>
+
+    <div>
+        <button type="submit" name="operation" value="add" class="btn">Cộng</button>
+        <button type="submit" name="operation" value="subtract" class="btn">Trừ</button>
+        <button type="submit" name="operation" value="multiply" class="btn">Nhân</button>
+        <button type="submit" name="operation" value="divide" class="btn">Chia</button>
+    </div>
+
+    <div>
+        <label for="result">Kết quả:</label>
+        <input type="text" id="result" value="@ViewData["Result"]" readonly>
+    </div>
+
+    @if (ViewData["Error"] != null)
+    {
+        <p style="color: red;">@ViewData["Error"]</p>
+    }
+</form>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        padding: 20px;
+    }
+
+    h2 {
+        color: #003366;
+        text-align: center;
+    }
+
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    input[type="number"],
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        background-color: #0056b3;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: 5px;
+        font-size: 14px;
+    }
+
+        .btn:hover {
+            background-color: #003366;
+        }
+
+        .btn:focus {
+            outline: none;
+        }
+
+    input[readonly] {
+        background-color: #f1f1f1;
+    }
+
+    p {
+        text-align: center;
+        font-size: 16px;
+    }
+</style>

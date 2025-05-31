@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Nhap";
+}
+
+<h2>Nhap</h2>
+
+<form action="/QuanLyNhanVien/Xuat" method="post">
+    <table>
+        <tr>
+            <td>Ma Nhan Vien</td>
+            <td><input type="text" name="manv" /></td>
+        </tr>
+        <tr>
+            <td>Ho ten</td>
+            <td><input type="text" name="hoten" /></td>
+        </tr>
+        <tr>
+            <td>Dia chi</td>
+            <td>
+                <select name="diachi">
+                    <option>Ha Noi</option>
+                    <option>Hai Phong</option>
+                    <option>Quang Ninh </option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Ngay lam</td>
+            <td><input type="text" name="songaylam" /></td>
+        </tr>
+        <tr>
+            <td>Luong ngay </td>
+            <td><input type="text" name="luongngay" /></td>
+        </tr>
+
+        <tr>
+            <td><button type="submit">Nhap</button></td>
+        </tr>
+
+    </table>
+</form>

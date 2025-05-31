@@ -1,0 +1,34 @@
+﻿@{
+    // Lấy thời gian hiện tại
+    var currentTime = DateTime.Now;
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiển thị thời gian</title>
+</head>
+<body>
+    <h1>Hiển thị thời gian hiện tại</h1>
+    <table border="1" cellpadding="10">
+        <tr>
+            <td>Day</td>
+            <td>@currentTime.Day</td>
+        </tr>
+        <tr>
+            <td>Hour</td>
+            <td>@currentTime.Hour</td>
+        </tr>
+        <tr>
+            <td>Minute</td>
+            <td>@currentTime.Minute</td>
+        </tr>
+        <tr>
+            <td>Second</td>
+            <td>@currentTime.Second</td>
+        </tr>
+    </table>
+</body>
+</html>

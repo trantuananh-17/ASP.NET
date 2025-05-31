@@ -1,0 +1,39 @@
+﻿@model Bai4.Models.EmailInfo
+@{
+    ViewBag.Title = "Send Email";
+}
+
+<h2 style="text-align: center;">Send Email</h2>
+
+<form action="/Email/Index" method="post" enctype="multipart/form-data" style="max-width: 600px; margin: auto;">
+    <div style="margin-bottom: 20px;">
+        <label for="from" style="display: block; font-weight: bold;">From:</label>
+        <input type="text" name="from" id="from" style="width: 100%; padding: 8px;" required />
+    </div>
+    <div style="margin-bottom: 20px;">
+        <label for="to" style="display: block; font-weight: bold;">To:</label>
+        <input type="text" name="to" id="to" style="width: 100%; padding: 8px;" required />
+    </div>
+    <div style="margin-bottom: 20px;">
+        <label for="subject" style="display: block; font-weight: bold;">Subject:</label>
+        <input type="text" name="subject" id="subject" style="width: 100%; padding: 8px;" required />
+    </div>
+    <div style="margin-bottom: 20px;">
+        <label for="notes" style="display: block; font-weight: bold;">Notes:</label>
+        <textarea name="notes" id="notes" rows="5" style="width: 100%; padding: 8px;"></textarea>
+    </div>
+    <div style="margin-bottom: 20px;">
+        <label for="attachments" style="display: block; font-weight: bold;">Attachments:</label>
+        <input type="file" name="attachments" id="attachments" multiple style="width: 100%; padding: 8px;" />
+    </div>
+    <div style="text-align: center;">
+        <button type="submit" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            Send
+        </button>
+    </div>
+</form>
+
+@if (TempData["Message"] != null)
+{
+    <p style="text-align: center; color: green; margin-top: 20px;">@TempData["Message"]</p>
+}

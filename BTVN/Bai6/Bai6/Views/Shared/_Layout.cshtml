@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - Hanoi University of Industry</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav {
+            width: 200px;
+            float: left;
+            background-color: #f1f1f1;
+            padding: 10px;
+        }
+
+            nav ul {
+                list-style-type: none;
+                padding: 0;
+            }
+
+                nav ul li {
+                    margin: 10px 0;
+                }
+
+                    nav ul li a {
+                        text-decoration: none;
+                        color: #003366;
+                    }
+
+        .container {
+           margin: 20px auto;
+        }
+
+        footer {
+            clear: both;
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+
+
+        nav > ul {
+            height: 400px;
+        }
+
+
+        .flex{
+            display: flex;
+           
+            width: 100%;
+                
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hanoi University of Industry</h1>
+    </header>
+
+
+
+
+    <div class="flex">
+        <nav>
+            <ul>
+                <li><a href="/Home/Introduction">Giới thiệu</a></li>
+                <li><a href="/Home/Admission">Tuyển sinh</a></li>
+                <li><a href="/Home/Training">Đào tạo</a></li>
+                <li><a href="/DisplayTime/TimeDisplay">Hiện thời gian</a></li>
+                <li><a href="/Calculator/Calculator">Tính Toán</a></li>
+                <li><a href="/Register/Register">Đăng ký</a></li>
+            </ul>
+        </nav>
+        <div class="container">
+            @RenderBody()
+        </div>
+        <article>
+            <img width="220" src="~/Images/Screenshot 2025-04-07 164218.png" />
+        </article>
+    </div>
+
+
+    <footer>
+        <p>@DateTime.Now.Year - Hanoi University of Industry</p>
+    </footer>
+</body>
+</html>

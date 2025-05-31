@@ -1,0 +1,15 @@
+﻿@model TH03ASP.Models.SanPham
+@{
+    ViewBag.Title = "Xuat";
+}
+
+<h2>Xuat</h2>
+
+<ul>
+    <li><strong>Mã SP:</strong> @Model.masp</li>
+    <li><strong>Tên SP:</strong> @Model.tensanpham</li>
+    <li><strong>Số lượng:</strong> @Model.soluong</li>
+    <li><strong>Giá tiền:</strong> @Model.giatien.ToString("N0") VND</li>
+    <li><strong>Giảm giá:</strong> @(Model.giamgia == 1 ? "Có" : "Không")</li>
+    <li><strong>Thành tiền:</strong> @Model.thanhtien.ToString("N0") VND</li>
+</ul>

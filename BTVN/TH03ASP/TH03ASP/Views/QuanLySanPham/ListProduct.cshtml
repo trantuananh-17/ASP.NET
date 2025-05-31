@@ -1,0 +1,58 @@
+﻿@model IEnumerable<TH03ASP.Models.SanPham>
+@{
+    ViewBag.Title = "ListProduct";
+    List<TH03ASP.Models.SanPham> list1 = ViewBag.list1;
+    List<TH03ASP.Models.SanPham> list2 = ViewBag.list2;
+}
+
+<h2>ListProduct</h2>
+
+<table>
+    <tr>
+        <th>Ma san pham</th>
+        <th>Ten san pham</th>
+        <th>So luong</th>
+        <th>Gia tien</th>
+        <th>Giam gia</th>
+        <th>Tong tien</th>
+    </tr>
+    @foreach(var item in list1)
+            {
+                <tr>
+                    <td>@item.masp</td>
+                    <td>@item.tensanpham</td>
+                    <td>@item.soluong</td>
+                    <td>@item.giatien</td>
+                    <td>@item.giamgia</td>
+                    <td>@item.thanhtien</td>
+                </tr>
+            }
+</table>
+<table>
+    <tr>
+        <th>Ma san pham</th>
+        <th>Ten san pham</th>
+        <th>So luong</th>
+        <th>Gia tien</th>
+        <th>Giam gia</th>
+        <th>Tong tien</th>
+    </tr>
+    @foreach(var item in list2)
+            {
+                <tr>
+                    <td>@item.masp</td>
+                    <td>@item.tensanpham</td>
+                    <td>@item.soluong</td>
+                    <td>@item.giatien</td>
+                    <td>@item.giamgia</td>
+                    <td>@item.thanhtien</td>
+                </tr>
+            }
+</table>
+
+<style>
+    tr td{
+        border: 1px solid #000;
+        padding: 10px 20px;
+    }
+</style>

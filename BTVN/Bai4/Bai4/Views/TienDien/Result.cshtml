@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Kết Quả Tính Tiền Điện";
+}
+
+<div class="row">
+    <div class="col-6">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th colspan="3" class="text-center fs-4">Kết Quả Tính Tiền Điện</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Họ tên chủ hộ:</td>
+                    <td>@ViewBag.OwnerName</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Mức tiêu thụ điện:</td>
+                    <td>@ViewBag.Consumption KW</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Tổng tiền điện phải trả:</td>
+                    <td>@ViewBag.TotalAmount.ToString("N0") đ</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="text-center">
+                        <a href="@Url.Action("Index", "TienDien")" class="btn btn-primary">Quay lại</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

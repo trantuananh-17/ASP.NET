@@ -1,0 +1,52 @@
+﻿@model IEnumerable<TH04ASP.Models.NhanVien>
+@{
+    ViewBag.Title = "ViewList";
+    List<TH04ASP.Models.NhanVien> list1 = ViewBag.list1;
+    List<TH04ASP.Models.NhanVien> list2 = ViewBag.list2;
+}
+
+<h2>ViewList</h2>
+
+<table>
+    <tr>
+        <td>Ma nhan vien</td>
+        <td>Ten nhan vien</td>
+        <td>Dia chi</td>
+        <td>So ngay lam</td>
+        <td>Luong ngay</td>
+        <td>Tong luong</td>
+    </tr>
+    @foreach (var item in list1)
+    {
+        <tr>
+            <td>@item.manv</td>
+            <td>@item.hoten</td>
+            <td>@item.diachi</td>
+            <td>@item.songaylam</td>
+            <td>@item.luongngay</td>
+            <td>@item.tienluong</td>
+        </tr>
+    }
+</table>
+
+<table>
+    <tr>
+        <td>Ma nhan vien</td>
+        <td>Ten nhan vien</td>
+        <td>Dia chi</td>
+        <td>So ngay lam</td>
+        <td>Luong ngay</td>
+        <td>Tong luong</td>
+    </tr>
+    @foreach (var item in list2)
+    {
+        <tr>
+            <td>@item.manv</td>
+            <td>@item.hoten</td>
+            <td>@item.diachi</td>
+            <td>@item.songaylam</td>
+            <td>@item.luongngay</td>
+            <td>@item.tienluong</td>
+        </tr>
+    }
+</table>

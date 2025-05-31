@@ -1,0 +1,73 @@
+﻿@model IEnumerable<TestTx1.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="mb-4">Danh sách sản phẩm</h2>
+
+<p>
+    @Html.ActionLink("➕ Thêm mới", "ThemDuLieu", null, new { @class = "btn btn-success mb-3" })
+</p>
+
+<div class="row mb-4">
+    <!-- Tìm kiếm theo tên -->
+    <div class="col-md-4">
+        @using (Html.BeginForm("Index", "Objects", FormMethod.Get))
+        {
+            <div class="input-group">
+                @Html.TextBox("tim", Request["tim"], new { @class = "form-control", placeholder = "Tìm theo tên..." })
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">Tìm</button>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Tìm kiếm theo giá -->
+    <div class="col-md-4">
+        @using (Html.BeginForm("Index", "Objects", FormMethod.Get))
+        {
+            <div class="input-group">
+                @Html.TextBox("gia", Request["gia"], new { @class = "form-control", placeholder = "Tìm theo giá lớn hơn..." })
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">Tìm</button>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Sắp xếp -->
+    <div class="col-md-4 text-md-right mt-3 mt-md-0">
+        <div class="btn-group" role="group">
+            @Html.ActionLink("📁 Sắp xếp theo tên", "Index", new { sx = ViewBag.sapxeptheoten, tim = Request["tim"], gia = Request["gia"] }, new { @class = "btn btn-outline-secondary" })
+            @Html.ActionLink("💰 Sắp xếp theo giá", "Index", new { sx = ViewBag.sapxeptheogia, tim = Request["tim"], gia = Request["gia"] }, new { @class = "btn btn-outline-secondary" })
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card h-100">
+                    <img class="card-img-top" src="@Url.Content("~/Images/" + item.Image)" height="300" style="object-fit: cover;" alt="Ảnh" />
+                    <div class="card-body text-center">
+                        <h5 class="card-title">@item.ProductName</h5>
+                        <p class="card-text">@item.Region</p>
+                        <p class="card-text">@item.Price ₫</p>
+                        <p class="card-text"><small>Giá mua: @item.PurchasePrice ₫</small></p>
+                    </div>
+                    <div class="card-footer text-center">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }, new { @class = "btn btn-sm btn-outline-info m-1" })
+                        @Html.ActionLink("Details", "Details", new { id = item.ProductID }, new { @class = "btn btn-sm btn-outline-secondary m-1" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ProductID }, new { @class = "btn btn-sm btn-outline-danger m-1" })
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

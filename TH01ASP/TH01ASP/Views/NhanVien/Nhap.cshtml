@@ -4,7 +4,7 @@
 }
 
 <h1 style="text-align:center">Employee Information</h1>
-<form>
+<form action="/NhanVien/Xuat" method="post">
     <table>
         <tr>
             <td>First Name</td>
@@ -21,20 +21,20 @@
         <tr>
             <td>Gender</td>
             <td>
-                <input type="radio" name="gender" value="Nam" />Nam
-                <input type="radio" name="gender" value="Nữ" />Nữ
+                <input type="radio" name="gioitinh" value="nam" />Nam
+                <input type="radio" name="gioitinh" value="nu" />Nữ
             </td>
         </tr>
         <tr>
             <td>DOB:</td>
             <td>
-                <select name="year">
+                <select name="namsinh">
                     <option>2004</option>
                     <option>2003</option>
                     <option>2002</option>
                     <option>2001</option>
                 </select>
-                <select name="month">
+                <select name="thangsinh">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -51,9 +51,9 @@
         <tr>
             <td>Hobies</td>
             <td>
-                <input type="checkbox" name="hobie" value="music" />Music
-                <input type="checkbox" name="hobie" value="touris" />Touris
-                <input type="checkbox" name="hobie" value="sport" />Sport
+                <input type="checkbox" name="sothich" value="music" />Music
+                <input type="checkbox" name="sothich" value="touris" />Touris
+                <input type="checkbox" name="sothich" value="sport" />Sport
             </td>
         </tr>
         <tr>
@@ -76,9 +76,3 @@
         </tr>
     </table>
 </form>
-<p>Ho ten: @ViewBag.firstname @ViewBag.lastname</p>
-<p>Gioi tinh: @ViewBag.gioitinh</p>
-<p>Ngya sinh: @ViewBag.month @ViewBag.year</p>
-<p>So thich: @ViewBag.hobie</p>
-<p>Luong: @ViewBag.luong</p>
-<p>Ngay lam viec: @ViewBag.ngaylv</p>

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<TH02ASP.Models.NhanVien>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<TH02ASP.Models.NhanVien> list1 = ViewBag.list1;
+    List<TH02ASP.Models.NhanVien> list2 = ViewBag.list2;
+}
+
+<h2>XuatList</h2>
+
+<table>
+    <tr>
+        <td colspan="6">
+            Danh sach nhan vien co so ngay lam tren 20
+        </td>
+    </tr>
+    <tr>
+        <td>Ma NV</td>
+        <td>Ho ten</td>
+        <td>Dia chi</td>
+        <td>So ngay lam</td>
+        <td>Luong ngay</td>
+        <td>Tien luong</td>
+    </tr>
+    @foreach (var item in list1)
+    {
+        <tr>
+            <td>@item.manv</td>
+            <td>@item.hoten</td>
+            <td>@item.diachi</td>
+            <td>@item.songaylam</td>
+            <td>@item.luongngay</td>
+            <td>@item.tienluong</td>
+        </tr>
+    }
+
+</table>
+
+<table>
+    <tr>
+        <td colspan="6">
+            Danh sach nhan vien co luong treen 190000
+        </td>
+    </tr>
+    <tr>
+        <td>Ma NV</td>
+        <td>Ho ten</td>
+        <td>Dia chi</td>
+        <td>So ngay lam</td>
+        <td>Luong ngay</td>
+        <td>Tien luong</td>
+    </tr>
+    @foreach (var item in list2)
+    {
+        <tr>
+            <td>@item.manv</td>
+            <td>@item.hoten</td>
+            <td>@item.diachi</td>
+            <td>@item.songaylam</td>
+            <td>@item.luongngay</td>
+            <td>@item.tienluong</td>
+        </tr>
+    }
+
+</table>
+
+<style>
+    table {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    tr td{
+        border: 1px solid #000;
+        padding: 10px 20px;
+    }
+</style>

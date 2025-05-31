@@ -1,0 +1,94 @@
+﻿@model Bai4.Models.Staff 
+@{
+    ViewBag.Title = "Staff Information Entry";
+}
+
+<div style="max-width: 600px; margin: 40px auto; font-family: Arial, sans-serif; padding: 20px; border: 1px solid #ddd;">
+    <h1 style="text-align: center; font-size: 24px; color: #333;">Staff Information Entry</h1>
+    <form action="/Staff/Save" method="post" enctype="multipart/form-data" style="margin-bottom: 20px;">
+        <div style="margin-bottom: 20px;">
+            <label for="id" style="display: block; font-weight: bold; margin-bottom: 5px;">ID:</label>
+            <input type="text" name="id" id="id" style="width: 100%; padding: 8px; box-sizing: border-box;" required />
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <label for="name" style="display: block; font-weight: bold; margin-bottom: 5px;">Name:</label>
+            <input type="text" name="name" id="name" style="width: 100%; padding: 8px; box-sizing: border-box;" required />
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <label for="dob" style="display: block; font-weight: bold; margin-bottom: 5px;">Date of Birth:</label>
+            <input type="date" name="dob" id="dob" style="width: 100%; padding: 8px; box-sizing: border-box;" required />
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <label for="salary" style="display: block; font-weight: bold; margin-bottom: 5px;">Salary:</label>
+            <input type="number" name="salary" id="salary" style="width: 100%; padding: 8px; box-sizing: border-box;" required />
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <label for="fileImage" style="display: block; font-weight: bold; margin-bottom: 5px;">Image:</label>
+            <input type="file" name="fileImage" id="fileImage" style="width: 100%; padding: 8px;" onchange="loadFile(event)" required />
+        </div>
+
+        <div style="margin-bottom: 20px; text-align: center;">
+            <img id="output" alt="No Image" width="200" height="135"
+                 src="@((ViewBag.ImageName != null) ? Url.Content("~/Images/" + ViewBag.ImageName) : Url.Content("~/Images/emptyImage.png"))" />
+        </div>
+
+        <div style="text-align: center;">
+            <button type="submit" style="padding: 10px 20px; border: 1px solid #ccc; border-radius: 5px; background: none;">
+                Save
+            </button>
+        </div>
+    </form>
+
+    <form action="/Staff/Open" method="get" style="text-align: center; margin-top: 20px;">
+        <button type="submit" style="padding: 10px 20px; border: 1px solid #ccc; border-radius: 5px; background: none;">
+            Open
+        </button>
+    </form>
+
+    <div style="margin-top: 20px; text-align: center;">
+        @if (TempData["Message"] != null)
+        {
+            <p style="color: red;">@TempData["Message"]</p>
+        }
+
+        @if (ViewBag.Data != null)
+        {
+            <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid #ddd; padding: 8px;">ID</th>
+                        <th style="border: 1px solid #ddd; padding: 8px;">Name</th>
+                        <th style="border: 1px solid #ddd; padding: 8px;">Date of Birth</th>
+                        <th style="border: 1px solid #ddd; padding: 8px;">Salary</th>
+                        <th style="border: 1px solid #ddd; padding: 8px;">Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var staff in ViewBag.Data)
+                    {
+                        <tr>
+                            <td style="border: 1px solid #ddd; padding: 8px;">@staff.Id</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">@staff.Name</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">@staff.DateOfBirth.ToShortDateString()</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">@staff.Salary</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">
+                                <img src="@Url.Content("~/Images/" + staff.ImageName)" alt="Image" width="50" height="50" />
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>
+
+<script>
+    var loadFile = function (event) {
+        var image = document.getElementById("output");
+        image.src = URL.createObjectURL(event.target.files[0]);
+    };
+</script>
